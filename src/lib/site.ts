@@ -33,7 +33,14 @@ export const LANG_COLOR = {
 export const LANGUAGES = [
   { name: "Go", color: LANG_COLOR.Go, x: 7, y: 16, rot: -5, size: "xl" },
   { name: "Rust", color: LANG_COLOR.Rust, x: 54, y: 10, rot: 4, size: "xl" },
-  { name: "Python", color: LANG_COLOR.Python, x: 14, y: 54, rot: 7, size: "lg" },
+  {
+    name: "Python",
+    color: LANG_COLOR.Python,
+    x: 14,
+    y: 54,
+    rot: 7,
+    size: "lg",
+  },
   { name: "Zig", color: LANG_COLOR.Zig, x: 66, y: 48, rot: -7, size: "lg" },
   { name: "Lua", color: LANG_COLOR.Lua, x: 38, y: 30, rot: 2, size: "md" },
 ] as const;
@@ -82,7 +89,8 @@ export const PROJECTS: Project[] = [
     name: "mushmellow",
     url: "https://github.com/dominionthedev/mushmellow",
     lang: "Go",
-    blurb: "Deterministic, local-first orchestration for development workflows.",
+    blurb:
+      "Deterministic, local-first orchestration for development workflows.",
   },
   {
     name: "sheme",
@@ -109,8 +117,8 @@ export const PROJECTS: Project[] = [
     blurb: "A terminal from the void.",
   },
   {
-    name: "nvim-timeline",
-    url: "https://github.com/dominionthedev/nvim-timeline",
+    name: "timeline",
+    url: "https://github.com/dominionthedev/timeline.nvim",
     lang: "Lua",
     blurb: "Git-like history for individual files in Neovim.",
   },
@@ -174,9 +182,17 @@ export const FEATURED = PROJECTS[0]!;
 export const CATALOG = PROJECTS.slice(1);
 
 export const LINKS = [
-  { href: "https://github.com/dominionthedev", label: "GitHub", detail: "github.com/dominionthedev" },
+  {
+    href: "https://github.com/dominionthedev",
+    label: "GitHub",
+    detail: "github.com/dominionthedev",
+  },
   { href: `mailto:${SITE_EMAIL}`, label: "Email", detail: SITE_EMAIL },
-  { href: "https://x.com/dominionthedev", label: "X", detail: "x.com/dominionthedev" },
+  {
+    href: "https://x.com/dominionthedev",
+    label: "X",
+    detail: "x.com/dominionthedev",
+  },
 ] as const;
 
 export function colorFor(lang: string) {

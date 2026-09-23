@@ -106,7 +106,9 @@ function transfigure(el: HTMLElement) {
 }
 
 function reveal() {
-  const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+  const nodes = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-reveal]"),
+  );
   if (prefersReducedMotion()) {
     nodes.forEach((n) => n.classList.add("reveal"));
     return;
@@ -129,8 +131,12 @@ function reveal() {
 function activeNav() {
   const root = document.getElementById("tour");
   if (!root) return;
-  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>("nav a[href^='#']"));
-  const ids = links.map((a) => a.getAttribute("href")?.slice(1)).filter(Boolean) as string[];
+  const links = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>("nav a[href^='#']"),
+  );
+  const ids = links
+    .map((a) => a.getAttribute("href")?.slice(1))
+    .filter(Boolean) as string[];
   const els = ids
     .map((id) => document.getElementById(id))
     .filter((el): el is HTMLElement => Boolean(el));
@@ -141,8 +147,14 @@ function activeNav() {
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (!visible?.target.id) return;
       links.forEach((a) => {
-        a.classList.toggle("is-on", a.getAttribute("href") === `#${visible.target.id}`);
-        a.classList.toggle("text-fg", a.getAttribute("href") === `#${visible.target.id}`);
+        a.classList.toggle(
+          "is-on",
+          a.getAttribute("href") === `#${visible.target.id}`,
+        );
+        a.classList.toggle(
+          "text-fg",
+          a.getAttribute("href") === `#${visible.target.id}`,
+        );
       });
     },
     { root, rootMargin: "-20% 0px -55% 0px", threshold: [0.2, 0.5, 0.8] },
@@ -155,12 +167,17 @@ function tourKeys() {
   if (!root) return;
 
   const stages = () =>
-    STAGES.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => Boolean(el));
+    STAGES.map((id) => document.getElementById(id)).filter(
+      (el): el is HTMLElement => Boolean(el),
+    );
 
   const indexOf = () => {
     const list = stages();
     const h = root.clientHeight || 1;
-    return Math.max(0, Math.min(list.length - 1, Math.round(root.scrollTop / h)));
+    return Math.max(
+      0,
+      Math.min(list.length - 1, Math.round(root.scrollTop / h)),
+    );
   };
 
   const goTo = (i: number) => {
@@ -199,7 +216,9 @@ function tourKeys() {
 
 function boot() {
   document.querySelectorAll<HTMLElement>("[data-type]").forEach(typeHero);
-  document.querySelectorAll<HTMLElement>("[data-transfigure]").forEach(transfigure);
+  document
+    .querySelectorAll<HTMLElement>("[data-transfigure]")
+    .forEach(transfigure);
   reveal();
   activeNav();
   tourKeys();
