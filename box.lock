@@ -1,0 +1,10 @@
+schema_version = 1
+box_name = "site"
+account_name = "_runbox_fbae041b"
+runbox_version = "0.1.0"
+created_at = "1790136440"
+locked_at = "1790136440"
+lifecycle = "Persistent"
+interactive = true
+config_hash = "69977d824713c5cb24269e973cbeb845ceb5a04bfa719e70720fb2f6f59e47f8"
+setup_assets_hash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
