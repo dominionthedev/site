@@ -182,16 +182,18 @@ export const FEATURED = PROJECTS[0]!;
 export const CATALOG = PROJECTS.slice(1);
 
 export const LINKS = [
+  { href: `mailto:${SITE_EMAIL}`, label: "Email", detail: SITE_EMAIL, icon: "mail" },
   {
     href: "https://github.com/dominionthedev",
     label: "GitHub",
     detail: "github.com/dominionthedev",
+    icon: "github",
   },
-  { href: `mailto:${SITE_EMAIL}`, label: "Email", detail: SITE_EMAIL },
   {
     href: "https://x.com/dominionthedev",
     label: "X",
     detail: "x.com/dominionthedev",
+    icon: "x",
   },
 ] as const;
 
