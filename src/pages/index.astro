@@ -1,0 +1,292 @@
+---
+import Base from "../layouts/Base.astro";
+import {
+  CATALOG,
+  ENVIRONMENT,
+  FEATURED,
+  LANGUAGES,
+  LINKS,
+  NAV,
+  PHILOSOPHY,
+  SITE_EMAIL,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_THESIS,
+  colorFor,
+} from "../lib/site";
+
+const secondary = LINKS.filter((l) => !l.href.startsWith("mailto:"));
+---
+
+<Base>
+  <div class="relative flex h-dvh flex-col overflow-hidden bg-bg text-fg">
+    <div class="ambience" aria-hidden>
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+    </div>
+    <div class="grain" aria-hidden></div>
+
+    <a
+      href="#work"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-mark focus:px-3 focus:py-2 focus:text-mark-fg"
+    >
+      Skip to work
+    </a>
+
+    <header class="relative z-40 shrink-0 border-b border-line bg-bg/80 backdrop-blur-md">
+      <div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:px-8">
+        <a href="#hero" class="brand-mark text-sm font-semibold tracking-[0.14em]">
+          {SITE_NAME.toUpperCase()}
+        </a>
+        <nav class="flex items-center gap-1 sm:gap-2">
+          {
+            NAV.map((item) => (
+              <a
+                href={`#${item.id}`}
+                class="nav-link inline-flex min-h-11 items-center px-2.5 text-sm text-muted transition-colors duration-150"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <div id="tour" class="tour relative z-10">
+      <section id="hero" class="stage">
+        <div class="scan"></div>
+        <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 md:px-8">
+          <p class="hero-late is-on mb-6 text-sm tracking-[0.18em] text-faint uppercase">
+            {SITE_TAGLINE}
+          </p>
+          <h1 class="max-w-4xl text-display leading-[0.95] font-semibold tracking-tight" aria-label={`${SITE_THESIS}.`}>
+            <span
+              class="type-line is-hero"
+              data-type
+              data-text={SITE_THESIS}
+              data-prefix="> "
+              data-accent="terminal"
+              data-delay="220"
+              aria-hidden="true"></span>
+          </h1>
+          <div
+            class="mt-10 flex max-w-3xl flex-col gap-8 md:mt-12 md:flex-row md:items-end md:justify-between"
+          >
+            <p class="hero-late max-w-md text-lg text-muted" style="animation-delay: 80ms">
+              Isolation, motion, color, and the editor I refuse to leave.
+            </p>
+            <a
+              href="#work"
+              class="cta hero-late inline-flex min-h-12 w-fit shrink-0 items-center gap-2 border border-line bg-lift px-5 text-sm font-medium"
+              style="animation-delay: 160ms"
+            >
+              See the work
+              <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <path d="M12 5v14M19 12l-7 7-7-7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div
+          class="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-6 text-sm text-faint md:px-8"
+        >
+          <span>j / k · scroll</span>
+          <a href="#think" class="transition-colors duration-150 hover:text-mark">
+            Next
+            <svg class="ml-2 inline size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <path d="M12 5v14M19 12l-7 7-7-7"></path>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section id="think" class="stage">
+        <div
+          data-reveal
+          class="reveal-item mx-auto grid h-full max-w-6xl grid-cols-1 content-center items-start gap-12 px-5 py-10 md:px-8 lg:grid-cols-3 lg:gap-16"
+        >
+          <div class="lg:col-span-2">
+            <p class="kicker">
+              <span class="text-mark">01</span>
+              <span class="mx-3 text-faint">/</span>
+              Think
+            </p>
+            <p class="max-w-3xl text-billboard leading-[1.12] font-semibold tracking-tight">
+              {PHILOSOPHY.lines[0]}
+            </p>
+          </div>
+          <div class="flex flex-col gap-12 lg:mt-14">
+            <p class="text-quote leading-snug text-muted">{PHILOSOPHY.lines[1]}</p>
+            <aside class="border-t border-mark pt-5">
+              <p class="mb-3 text-xs tracking-[0.18em] text-mark uppercase">Proof · RunBox</p>
+              <p class="text-sm leading-relaxed text-muted">{PHILOSOPHY.proof}</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" class="stage">
+        <div class="relative mx-auto flex h-full max-w-6xl flex-col px-5 py-10 md:px-8">
+          <div data-reveal class="reveal-item">
+            <p class="kicker">
+              <span class="text-mark">02</span>
+              <span class="mx-3 text-faint">/</span>
+              Stack
+            </p>
+            <h2 class="max-w-md text-section leading-tight">The languages I ship in.</h2>
+          </div>
+          <div class="lang-field relative mt-4 min-h-0 flex-1">
+            {
+              LANGUAGES.map((lang, i) => (
+                <span
+                  class:list={["lang-chip", `lang-${lang.size}`]}
+                  data-transfigure
+                  data-text={lang.name}
+                  style={`--lang:${lang.color};--x:${lang.x}%;--y:${lang.y}%;--rot:${lang.rot}deg;animation-delay:${i * 80}ms`}
+                >
+                  {lang.name}
+                </span>
+              ))
+            }
+          </div>
+          <div
+            class="mt-auto flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-baseline sm:gap-8"
+          >
+            <p class="shrink-0 text-xs tracking-[0.18em] text-faint uppercase">Environment</p>
+            <p class="text-lg tracking-tight">
+              {
+                ENVIRONMENT.map((item, i) => (
+                  <>
+                    {i > 0 ? <span class="mx-3 text-faint">·</span> : null}
+                    <span class="env-chip">{item}</span>
+                  </>
+                ))
+              }
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="stage">
+        <div class="mx-auto flex h-full max-w-6xl flex-col px-5 py-8 md:px-8 md:py-10">
+          <div data-reveal class="reveal-item shrink-0">
+            <p class="kicker">
+              <span class="text-mark">03</span>
+              <span class="mx-3 text-faint">/</span>
+              Work
+            </p>
+            <h2 class="mb-6 text-section leading-tight">What left the machine.</h2>
+          </div>
+          <div class="grid min-h-0 flex-1 gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+            <a
+              href={FEATURED.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="feature-panel group"
+              style={`--lang:${colorFor(FEATURED.lang)}`}
+            >
+              <div
+                class="flex items-center justify-between gap-4 text-xs tracking-[0.16em] text-faint uppercase"
+              >
+                <span class="text-mark">Lead</span>
+                <span>{FEATURED.lang}</span>
+              </div>
+              <div class="mt-8">
+                <h3 class="text-billboard font-semibold tracking-tight">{FEATURED.name}</h3>
+                <p class="mt-4 text-lg text-muted">{FEATURED.blurb}</p>
+                <p class="mt-4 text-sm text-faint">{PHILOSOPHY.proof}</p>
+              </div>
+              <span class="mt-8 inline-flex items-center gap-2 text-sm">
+                Open repository
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <path d="M7 17L17 7M7 7h10v10"></path>
+                </svg>
+              </span>
+            </a>
+            <ul class="stage-scroll project-list divide-y divide-line border-y border-line">
+              {
+                CATALOG.map((p) => (
+                  <li>
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="work-row group"
+                      style={`--lang:${colorFor(p.lang)}`}
+                    >
+                      <span class="work-row-name">{p.name}</span>
+                      <span class="hidden text-sm text-muted md:block">{p.blurb}</span>
+                      <span class="work-row-lang">{p.lang}</span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <p class="mt-4 shrink-0 text-sm text-faint">
+            Also{" "}
+            <a
+              href="https://github.com/leraniode"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted underline decoration-line underline-offset-4 transition-colors duration-150 hover:text-mark"
+            >
+              leraniode
+            </a>
+            {" — "}
+            color, tone, and experimental Go.
+          </p>
+        </div>
+      </section>
+
+      <section id="reach" class="stage">
+        <div
+          data-reveal
+          class="reveal-item mx-auto flex h-full max-w-6xl flex-col justify-between px-5 py-10 md:px-8"
+        >
+          <div>
+            <p class="kicker">
+              <span class="text-mark">04</span>
+              <span class="mx-3 text-faint">/</span>
+              Reach
+            </p>
+            <h2 class="text-display leading-[0.95] font-semibold tracking-tight">Write.</h2>
+            <a href={`mailto:${SITE_EMAIL}`} class="mail-line mt-8">
+              {SITE_EMAIL}
+            </a>
+            <ul class="mt-14 flex flex-col gap-4 sm:flex-row sm:gap-10">
+              {
+                secondary.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="group inline-flex min-h-11 items-center gap-2 text-lg transition-colors duration-150 hover:text-mark"
+                    >
+                      {link.label}
+                      <svg class="size-4 text-faint group-hover:text-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                        <path d="M7 17L17 7M7 7h10v10"></path>
+                      </svg>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div
+            class="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-6 text-sm text-faint"
+          >
+            <span>
+              site@{SITE_NAME.toLowerCase()}
+              <span class="caret is-idle ml-1 align-middle" aria-hidden></span>
+            </span>
+            <span>Built around the limit.</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Base>
