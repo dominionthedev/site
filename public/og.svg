@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0C0C0E"/>
+  <text
+    x="600"
+    y="332"
+    text-anchor="middle"
+    font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+    font-size="52"
+    font-weight="600"
+    letter-spacing="0.02em"
+  >
+    <tspan fill="#7CFFB2">&gt; </tspan><tspan fill="#ECE8E1">DominionDev</tspan><tspan fill="#7CFFB2">_</tspan>
+  </text>
+</svg>
