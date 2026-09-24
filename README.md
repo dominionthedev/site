@@ -1,8 +1,8 @@
 # DominionDev
 
-A tour, not a resume.
+> A tour, not a resume.
 
-Personal site for [DominionDev](https://github.com/dominionthedev). Isolation, motion, color, and the editor I refuse to leave.
+Personal site for [Me](https://github.com/dominionthedev).
 
 ## Run
 

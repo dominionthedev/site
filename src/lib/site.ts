@@ -14,8 +14,8 @@ export const STAGES = ["hero", "think", "stack", "work", "reach"] as const;
 
 export const PHILOSOPHY = {
   lines: [
-    "Stylishness isn't something you look at. It's how I say exactly what I feel.",
-    "A limit is not a stop. It's a challenge.",
+    "'Stylishness isn't something you look at. It's how I say exactly what I feel.'",
+    "'A limit is not a stop. It's a challenge.'",
   ],
   proof:
     "RunBox exists because a 4GB MacBook Air on macOS 11 couldn't run Docker. So instead of waiting for better hardware, I built around the limit.",
@@ -25,24 +25,22 @@ export const LANG_COLOR = {
   Go: "#00ADD8",
   Python: "#3776AB",
   Rust: "#E43717",
-  Zig: "#F7A41D",
   Lua: "#7C7CFF",
   TypeScript: "#3178C6",
 } as const;
 
 export const LANGUAGES = [
-  { name: "Go", color: LANG_COLOR.Go, x: 7, y: 16, rot: -5, size: "xl" },
-  { name: "Rust", color: LANG_COLOR.Rust, x: 54, y: 10, rot: 4, size: "xl" },
+  { name: "Go", color: LANG_COLOR.Go, x: 7, y: 23, rot: -5, size: "xl" },
+  { name: "Rust", color: LANG_COLOR.Rust, x: 54, y: 15, rot: 4, size: "xl" },
   {
     name: "Python",
     color: LANG_COLOR.Python,
-    x: 14,
-    y: 54,
+    x: 17,
+    y: 50,
     rot: 7,
     size: "lg",
   },
-  { name: "Zig", color: LANG_COLOR.Zig, x: 66, y: 48, rot: -7, size: "lg" },
-  { name: "Lua", color: LANG_COLOR.Lua, x: 38, y: 30, rot: 2, size: "md" },
+  { name: "Lua", color: LANG_COLOR.Lua, x: 42, y: 38, rot: 2, size: "md" },
 ] as const;
 
 export const ENVIRONMENT = ["WezTerm", "Tmux", "Neovim", "zsh"] as const;
@@ -182,7 +180,12 @@ export const FEATURED = PROJECTS[0]!;
 export const CATALOG = PROJECTS.slice(1);
 
 export const LINKS = [
-  { href: `mailto:${SITE_EMAIL}`, label: "Email", detail: SITE_EMAIL, icon: "mail" },
+  {
+    href: `mailto:${SITE_EMAIL}`,
+    label: "Email",
+    detail: SITE_EMAIL,
+    icon: "mail",
+  },
   {
     href: "https://github.com/dominionthedev",
     label: "GitHub",
