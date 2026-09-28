@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "og": "node scripts/write-og.mjs",
+    "dev": "node scripts/write-og.mjs && astro dev",
+    "build": "node scripts/write-og.mjs && astro build",
     "preview": "astro preview",
     "check": "astro check"
   },
