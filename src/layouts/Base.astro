@@ -5,7 +5,7 @@ import { SITE_NAME, SITE_TAGLINE, SITE_THESIS } from "../lib/site";
 
 const description = `${SITE_THESIS}. ${SITE_TAGLINE}`;
 const canonical = "https://dominiondev.leraniode.org/";
-const ogImage = new URL("/og.png", canonical).href;
+const ogImage = `${canonical}og.png`;
 ---
 
 <!doctype html>
@@ -24,11 +24,13 @@ const ogImage = new URL("/og.png", canonical).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="> DominionDev_" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@dominionthedev" />
     <meta name="twitter:title" content={SITE_NAME} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
