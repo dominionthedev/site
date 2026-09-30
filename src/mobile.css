@@ -1,59 +1,248 @@
 @media (max-width: 767px) {
+  body {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
   .tour {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
   }
 
   .stage {
-    height: auto;
+    height: 100%;
     min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    flex: 0 0 100%;
+    overflow: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
     padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
   }
 
   #work.stage {
     height: 100%;
+    min-height: 100%;
     overflow: hidden;
   }
 
   .nav-link {
-    min-height: 2.75rem;
-    padding-inline: 0.45rem;
-    font-size: 0.8rem;
+    min-height: 2.5rem;
+    padding-inline: 0.35rem;
+    font-size: 0.7rem;
   }
 
   .nav-link::after {
-    left: 0.45rem;
-    right: 0.45rem;
-    bottom: 0.4rem;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0.35rem;
   }
 
   .kicker {
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.65rem;
+  }
+
+  .type-line.is-hero {
+    min-height: 2.35em;
   }
 
   .lang-chip {
-    margin: 0.28rem;
-    padding: 0.65rem 1rem;
+    margin: 0.25rem;
+    padding: 0.55rem 0.85rem;
   }
 
   .lang-field {
-    min-height: 10.5rem;
+    min-height: 9rem;
   }
 
   .work-row {
-    min-height: 3rem;
-    padding: 0.65rem 0.15rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.15rem;
+  }
+
+  .work-row-name {
+    font-size: 0.85rem;
+  }
+
+  .work-row-lang {
+    font-size: 0.65rem;
   }
 
   .feature-panel {
-    padding: 1.15rem;
+    padding: 1rem;
+  }
+
+  .feature-panel .text-billboard {
+    font-size: 1.45rem;
+  }
+
+  .feature-panel .text-lg {
+    font-size: 0.95rem;
+  }
+
+  .reach-card {
+    min-height: 7.5rem;
+    padding: 1rem;
+  }
+
+  .reach-label {
+    font-size: 1.15rem;
+  }
+
+  .reach-detail {
+    font-size: 0.75rem;
+  }
+
+  .reach-icon {
+    width: 5.25rem;
+  }
+
+  .reach-copy {
+    max-width: calc(100% - 4.5rem);
   }
 }
 
 @media (max-width: 639px) {
   .type-line.is-hero {
     min-height: 2.4em;
+  }
+
+  .hero-late.mb-6 {
+    margin-bottom: 1rem;
+  }
+
+  .hero-late.text-lg {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .hero-late + .cta {
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .text-billboard {
+    font-size: 1.45rem;
+  }
+
+  .text-quote {
+    font-size: 1rem;
+  }
+
+  .text-section {
+    font-size: 1.35rem;
+  }
+
+  .env-chip,
+  .lang-field + div p.text-lg {
+    font-size: 0.85rem;
+  }
+
+  .feature-panel .mt-8 {
+    margin-top: 1.25rem;
+  }
+
+  .reach-grid {
+    gap: 0.65rem;
+    margin-top: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
+@media (max-width: 767px) {
+  /* Work: make the lead project the first mobile view, then reveal the list. */
+  #work.stage {
+    overflow-y: auto;
+    scroll-snap-align: start;
+  }
+
+  #work > div {
+    min-height: 100%;
+  }
+
+  #work .grid {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #work .feature-panel {
+    min-height: 0;
+    flex: 1 0 auto;
+    justify-content: space-between;
+    padding: 1.15rem;
+  }
+
+  #work .feature-panel .mt-8 {
+    margin-top: 1rem;
+  }
+
+  #work .feature-panel .text-billboard {
+    font-size: clamp(1.35rem, 7vw, 2rem);
+    line-height: 1.05;
+  }
+
+  #work .feature-panel .text-lg {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  #work .project-list {
+    flex: 0 0 auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Reach: stack cards with deliberate offsets rather than a horizontal row. */
+  #reach .reach-grid {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+
+  #reach .reach-grid li {
+    width: 88%;
+  }
+
+  #reach .reach-grid li:nth-child(2) {
+    align-self: flex-end;
+  }
+
+  #reach .reach-grid li:nth-child(3) {
+    align-self: center;
+    width: 82%;
+  }
+
+  #reach .reach-card {
+    min-height: 0;
+    height: clamp(5rem, 18vw, 7rem);
+    padding: 0.9rem;
+  }
+
+  #reach .reach-label {
+    font-size: 1rem;
+  }
+
+  #reach .reach-detail {
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  #reach .reach-icon {
+    width: clamp(3.5rem, 14vw, 5rem);
+  }
+
+  #reach .reach-copy {
+    max-width: calc(100% - 3.75rem);
   }
 }
