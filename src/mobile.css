@@ -1,4 +1,9 @@
 @media (max-width: 767px) {
+  body {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
   .tour {
     scroll-snap-type: y proximity;
     -webkit-overflow-scrolling: touch;
@@ -18,42 +23,126 @@
   }
 
   .nav-link {
-    min-height: 2.75rem;
-    padding-inline: 0.45rem;
-    font-size: 0.8rem;
+    min-height: 2.5rem;
+    padding-inline: 0.35rem;
+    font-size: 0.7rem;
   }
 
   .nav-link::after {
-    left: 0.45rem;
-    right: 0.45rem;
-    bottom: 0.4rem;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0.35rem;
   }
 
   .kicker {
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.65rem;
+  }
+
+  .type-line.is-hero {
+    min-height: 2.35em;
   }
 
   .lang-chip {
-    margin: 0.28rem;
-    padding: 0.65rem 1rem;
+    margin: 0.25rem;
+    padding: 0.55rem 0.85rem;
   }
 
   .lang-field {
-    min-height: 10.5rem;
+    min-height: 9rem;
   }
 
   .work-row {
-    min-height: 3rem;
-    padding: 0.65rem 0.15rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.15rem;
+  }
+
+  .work-row-name {
+    font-size: 0.85rem;
+  }
+
+  .work-row-lang {
+    font-size: 0.65rem;
   }
 
   .feature-panel {
-    padding: 1.15rem;
+    padding: 1rem;
+  }
+
+  .feature-panel .text-billboard {
+    font-size: 1.45rem;
+  }
+
+  .feature-panel .text-lg {
+    font-size: 0.95rem;
+  }
+
+  .reach-card {
+    min-height: 7.5rem;
+    padding: 1rem;
+  }
+
+  .reach-label {
+    font-size: 1.15rem;
+  }
+
+  .reach-detail {
+    font-size: 0.75rem;
+  }
+
+  .reach-icon {
+    width: 5.25rem;
+  }
+
+  .reach-copy {
+    max-width: calc(100% - 4.5rem);
   }
 }
 
 @media (max-width: 639px) {
   .type-line.is-hero {
     min-height: 2.4em;
+  }
+
+  .hero-late.mb-6 {
+    margin-bottom: 1rem;
+  }
+
+  .hero-late.text-lg {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .hero-late + .cta {
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .text-billboard {
+    font-size: 1.45rem;
+  }
+
+  .text-quote {
+    font-size: 1rem;
+  }
+
+  .text-section {
+    font-size: 1.35rem;
+  }
+
+  .env-chip,
+  .lang-field + div p.text-lg {
+    font-size: 0.85rem;
+  }
+
+  .feature-panel .mt-8 {
+    margin-top: 1.25rem;
+  }
+
+  .reach-grid {
+    gap: 0.65rem;
+    margin-top: 0.9rem;
+    margin-bottom: 1rem;
   }
 }
