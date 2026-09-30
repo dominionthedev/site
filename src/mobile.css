@@ -5,20 +5,25 @@
   }
 
   .tour {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
   }
 
   .stage {
-    height: auto;
+    height: 100%;
     min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    flex: 0 0 100%;
+    overflow: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
     padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
   }
 
   #work.stage {
     height: 100%;
+    min-height: 100%;
     overflow: hidden;
   }
 
