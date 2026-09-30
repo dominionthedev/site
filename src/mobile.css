@@ -1,0 +1,59 @@
+@media (max-width: 767px) {
+  .tour {
+    scroll-snap-type: y proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stage {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  #work.stage {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .nav-link {
+    min-height: 2.75rem;
+    padding-inline: 0.45rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-link::after {
+    left: 0.45rem;
+    right: 0.45rem;
+    bottom: 0.4rem;
+  }
+
+  .kicker {
+    margin-bottom: 0.9rem;
+  }
+
+  .lang-chip {
+    margin: 0.28rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .lang-field {
+    min-height: 10.5rem;
+  }
+
+  .work-row {
+    min-height: 3rem;
+    padding: 0.65rem 0.15rem;
+  }
+
+  .feature-panel {
+    padding: 1.15rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .type-line.is-hero {
+    min-height: 2.4em;
+  }
+}
