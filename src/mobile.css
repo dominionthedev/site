@@ -151,3 +151,98 @@
     margin-bottom: 1rem;
   }
 }
+
+
+@media (max-width: 767px) {
+  /* Work: make the lead project the first mobile view, then reveal the list. */
+  #work.stage {
+    overflow-y: auto;
+    scroll-snap-align: start;
+  }
+
+  #work > div {
+    min-height: 100%;
+  }
+
+  #work .grid {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #work .feature-panel {
+    min-height: 0;
+    flex: 1 0 auto;
+    justify-content: space-between;
+    padding: 1.15rem;
+  }
+
+  #work .feature-panel .mt-8 {
+    margin-top: 1rem;
+  }
+
+  #work .feature-panel .text-billboard {
+    font-size: clamp(1.35rem, 7vw, 2rem);
+    line-height: 1.05;
+  }
+
+  #work .feature-panel .text-lg {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  #work .project-list {
+    flex: 0 0 auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Reach: stack cards with deliberate offsets rather than a horizontal row. */
+  #reach .reach-grid {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+
+  #reach .reach-grid li {
+    width: 88%;
+  }
+
+  #reach .reach-grid li:nth-child(2) {
+    align-self: flex-end;
+  }
+
+  #reach .reach-grid li:nth-child(3) {
+    align-self: center;
+    width: 82%;
+  }
+
+  #reach .reach-card {
+    min-height: 0;
+    height: clamp(5rem, 18vw, 7rem);
+    padding: 0.9rem;
+  }
+
+  #reach .reach-label {
+    font-size: 1rem;
+  }
+
+  #reach .reach-detail {
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  #reach .reach-icon {
+    width: clamp(3.5rem, 14vw, 5rem);
+  }
+
+  #reach .reach-copy {
+    max-width: calc(100% - 3.75rem);
+  }
+}
